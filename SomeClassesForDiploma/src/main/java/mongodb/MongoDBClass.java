@@ -15,13 +15,14 @@ import java.io.IOException;
 public class MongoDBClass {
     public static void main(String[] args) throws ParserConfigurationException, TransformerException, SAXException, IOException {
         MongoClient client = new MongoClient("localhost", 27017);
-        MongoDatabase database = client.getDatabase("newTest1");
+        MongoDatabase database = client.getDatabase("newTest");
         MongoCollection<org.bson.Document> collection = database.getCollection("testCollection");
 
 
+        String json = Converter.convert("D:\\Загрузки\\contract.xml");
         long startTime = System.nanoTime();
         for (int i = 0; i < 10; i++) {
-            collection.insertOne(Document.parse(Converter.convert("D:\\Загрузки\\contract.xml")));
+            collection.insertOne(Document.parse(json));
         }
         long estimatedTime = System.nanoTime() - startTime;
 

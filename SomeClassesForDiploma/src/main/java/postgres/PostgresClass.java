@@ -23,7 +23,7 @@ public class PostgresClass {
 
             stmt = c.createStatement();
 
-            String sql = "DROP TABLE TEST ";
+            String sql = "DROP TABLE sales ";
 
             stmt.executeUpdate(sql);
 
@@ -34,13 +34,14 @@ public class PostgresClass {
 
             System.out.println("Created table successfully");
 
+            String json = Converter.convert("D:\\Загрузки\\contract.xml");
             long startTime = System.nanoTime();
             for (int i = 1; i <= 10; i++) {
                 stmt = c.createStatement();
                 sql = "INSERT INTO sales VALUES (?, ?::JSON)";
                 PreparedStatement ps = c.prepareStatement(sql);
                 ps.setInt (1, i);
-                ps.setObject (2, Converter.convert("D:\\Загрузки\\contract.xml"));
+                ps.setObject (2, json);
                 ps.executeUpdate();
 
             }
