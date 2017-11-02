@@ -6,11 +6,9 @@ import org.json.XML;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -33,14 +31,15 @@ public class Converter {
         testXML = writer.toString();
     }
 
-    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, TransformerException {
+    public static String convert(String filePath) throws ParserConfigurationException, IOException, SAXException, TransformerException {
         try {
-            Converter.recieveXML("D:\\Загрузки\\contract.xml");
+            Converter.recieveXML(filePath);
             JSONObject xmlJSONObj = XML.toJSONObject(testXML);
             String jsonPrettyPrintString = xmlJSONObj.toString(4);
-            System.out.println(jsonPrettyPrintString);
+            return jsonPrettyPrintString;
         } catch (JSONException je) {
             System.out.println(je.toString());
         }
+        return "";
     }
 }
