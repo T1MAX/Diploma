@@ -1,7 +1,8 @@
 package postgres;
 
 
-import xmlToJson.Converter;
+import org.json.JSONObject;
+import workWithJSON.Converter;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -34,7 +35,7 @@ public class PostgresClass {
 
             System.out.println("Created table successfully");
 
-            String json = Converter.convert("D:\\Загрузки\\contract.xml");
+            JSONObject json = Converter.convert("D:\\Загрузки\\contract.xml");
             long startTime = System.nanoTime();
             for (int i = 1; i <= 10; i++) {
                 stmt = c.createStatement();
