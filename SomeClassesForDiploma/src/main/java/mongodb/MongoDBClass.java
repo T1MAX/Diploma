@@ -44,7 +44,7 @@ public class MongoDBClass {
     public void select() {
         long startTime = System.nanoTime();
         Bson filter = Filters.lt("oos:price", 100000);
-        List<Document> all = collection.find().into(new ArrayList<>());
+        List<Document> all = collection.find(filter).into(new ArrayList<>());
         long estimatedTime = System.nanoTime() - startTime;
         System.out.printf("%d contracts with price less than 100000 RUB, time for select: %d.%n", all.size(), estimatedTime);
     }

@@ -13,8 +13,8 @@ import java.util.List;
 public class MyJSONParser {
     public static List<JSONArray> parseJSON(String path) throws IOException, JSONException {
         List<JSONArray> listOfContracts = new ArrayList<>();
+        long startTime = System.nanoTime();
         try {
-            long startTime = System.nanoTime();
             List<Path> xmlFiles = ZipReader.readZip(path);
             for (Path xmlFile: xmlFiles) {
                 byte[] bytes = Files.readAllBytes(xmlFile);
@@ -28,7 +28,8 @@ public class MyJSONParser {
         } catch (Error e) {
             e.printStackTrace();
         } finally {
-            System.out.println(listOfContracts.size() + " xml-files were written");
+            long time = System.nanoTime() - startTime;
+            System.out.printf("%d xml-files were written, time of parsing: %d.%n", listOfContracts.size(), time);
             return listOfContracts;
         }
 
