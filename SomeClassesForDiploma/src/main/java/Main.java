@@ -22,6 +22,6 @@ public class Main {
         //postgres.insert("contracts.zip");
         postgres.select();
 
-    }
+}
 
 }

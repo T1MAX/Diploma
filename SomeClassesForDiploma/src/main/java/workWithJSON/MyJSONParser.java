@@ -11,7 +11,7 @@ import java.util.List;
 
 
 public class MyJSONParser {
-    public static List<JSONArray> parseJSON(String path) throws IOException, JSONException {
+    public static List<JSONArray> parseJSON(Strinwg path) throws IOException, JSONException {
         List<JSONArray> listOfContracts = new ArrayList<>();
         long startTime = System.nanoTime();
         try {
