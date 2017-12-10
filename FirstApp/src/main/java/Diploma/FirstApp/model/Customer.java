@@ -1,8 +1,7 @@
-package Diploma.FirstApp;
+package Diploma.FirstApp.model;
 
 
 import com.querydsl.core.annotations.QueryEntity;
-import org.springframework.boot.jackson.JsonComponent;
 
 @QueryEntity
 public class Customer {
@@ -10,6 +9,14 @@ public class Customer {
 
     protected Customer(){}
     public Customer(MainInfo mainInfo) {
+        this.mainInfo = mainInfo;
+    }
+
+    public MainInfo getMainInfo() {
+        return mainInfo;
+    }
+
+    public void setMainInfo(MainInfo mainInfo) {
         this.mainInfo = mainInfo;
     }
 }
