@@ -1,9 +1,7 @@
 package Diploma.FirstApp.model;
 
 
-import com.querydsl.core.annotations.QueryEntity;
 
-@QueryEntity
 public class Customer {
     private MainInfo mainInfo;
 

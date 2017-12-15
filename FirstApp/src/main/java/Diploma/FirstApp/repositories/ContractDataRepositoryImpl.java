@@ -5,7 +5,10 @@ import Diploma.FirstApp.model.ContractData;
 import Diploma.FirstApp.repositories.ContractDataRepositoryCustom;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
+import com.mongodb.util.JSON;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.jackson.JsonObjectSerializer;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -31,7 +34,9 @@ public class ContractDataRepositoryImpl implements ContractDataRepositoryCustom 
         Iterable<DBObject> results = mongoTemplate.getCollection(collection).aggregate(agg).results();
 
         List<DBObject> suppliers = new ArrayList<>();
-        results.forEach(suppliers::add);
+        results.forEach(supplier -> {
+            JSONObject jsonObject = (JSONObject) JSON.parse(supplier.toString());
+        });
 
         return suppliers;
     }

@@ -1,9 +1,8 @@
 package Diploma.FirstApp.model;
 
-import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.boot.jackson.JsonComponent;
 
-@QueryEntity
+
 public class MainInfo {
 
     private Long inn;

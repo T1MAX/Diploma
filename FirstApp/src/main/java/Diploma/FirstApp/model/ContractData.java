@@ -1,10 +1,8 @@
 package Diploma.FirstApp.model;
 
-        import com.querydsl.core.annotations.QueryEntity;
-        import org.springframework.data.annotation.Id;
-        import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@QueryEntity
 @Document(collection = "contracts")
 public class ContractData {
 

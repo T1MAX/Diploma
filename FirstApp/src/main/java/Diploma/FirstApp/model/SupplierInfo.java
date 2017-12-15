@@ -1,9 +1,8 @@
 package Diploma.FirstApp.model;
 
-import com.querydsl.core.annotations.QueryEntity;
 import org.springframework.data.annotation.Id;
 
-@QueryEntity
+
 public class SupplierInfo {
 
     private String name;
