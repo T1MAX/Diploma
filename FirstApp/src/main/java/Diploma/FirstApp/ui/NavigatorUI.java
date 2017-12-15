@@ -24,15 +24,6 @@ public class NavigatorUI extends UI {
 
     private VerticalLayout layout;
 
-//    @WebServlet(urlPatterns = "/*")
-//    @VaadinServletConfiguration(ui = NavigatorUI.class, productionMode = false)
-//    public static class MyUIServlet extends VaadinServlet {
-//        @Override
-//        public ServletContext getServletContext() {
-//            return super.getServletContext();
-//        }
-//    }
-
     @Autowired
     ContractDataRepository repository;
 
@@ -66,31 +57,5 @@ public class NavigatorUI extends UI {
     }
 
 
-//    @Override
-//    protected void init(VaadinRequest vaadinRequest) {
-//        final VerticalLayout root = new VerticalLayout();
-//        root.setSizeFull();
-//        root.setMargin(true);
-//        root.setSpacing(true);
-//        setContent(root);
-//
-//        final CssLayout navigationBar = new CssLayout();
-//        navigationBar.addStyleName(ValoTheme.LAYOUT_COMPONENT_GROUP);
-//
-//        navigationBar.addComponent(createNavigationButton("Index View",
-//                IndexView.VIEW_NAME));
-//        navigationBar.addComponent(createNavigationButton("Suppliers View",
-//                SuppliersView.VIEW_NAME));
-//
-//        root.addComponent(navigationBar);
-//
-//        Navigator navigator = new Navigator(this, this);
-//        navigator.addView("index", IndexView.class);
-//        navigator.addView("suppliers", SuppliersView.class);
-//        navigator.addView(TopSuppliersView.VIEW_NAME, TopSuppliersView.class);
-//        navigator.navigateTo("index");
-//        navigator.addProvider(viewProvider);
-//
-//    }
 
 }
